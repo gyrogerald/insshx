@@ -743,7 +743,7 @@ wget ${REPO}Cdy/menu.zip
 wget -q -O /usr/bin/enc "https://raw.githubusercontent.com/gyrogerald/insshx/main/Enc/encrypt" ; chmod +x /usr/bin/enc
 7z x -pas123@Newbie menu.zip
 chmod +x menu/*
-enc menu/*
+#enc menu/*
 mv menu/* /usr/local/sbin
 rm -rf menu
 rm -rf menu.zip
