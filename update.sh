@@ -33,8 +33,8 @@ fun_bar() {
 }
 res1() {
    cd
-    wget https://raw.githubusercontent.com/Ilham24022001/Gantengzz/main/Cdy/menu.zip
-    wget -q -O /usr/bin/enc "https://raw.githubusercontent.com/Ilham24022001/Gantengzz/main/Enc/encrypt" ; chmod +x /usr/bin/enc
+    wget https://raw.githubusercontent.com/gyrogerald/insshx/main/Cdy/menu.zip
+    wget -q -O /usr/bin/enc "https://raw.githubusercontent.com/gyrogerald/insshx/main/Enc/encrypt" ; chmod +x /usr/bin/enc
     7z x -pas123@Newbie menu.zip
     chmod +x menu/*
     enc menu/*
@@ -46,7 +46,7 @@ res1() {
     rm -rf /usr/local/sbin/gz*
     rm -rf /usr/local/sbin/*.bak
     rm -rf /usr/local/sbin/m-noobz
-    wget /usr/local/sbin "https://raw.githubusercontent.com/Ilham24022001/Gantengzz/main/Cfg/m-noobz" 
+    wget /usr/local/sbin "https://raw.githubusercontent.com/gyrogerald/insshx/main/Cfg/m-noobz" 
     cp m-noobz /usr/local/sbin
     rm m-noobz*
     chmod +x /usr/local/sbin/m-noobz
