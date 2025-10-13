@@ -1,0 +1,136 @@
+#!/bin/bash
+dateFromServer=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
+biji=`date +"%Y-%m-%d" -d "$dateFromServer"`
+REDBG="\033[41m"  
+WHITEBLD="\033[1;37m"
+WHITE="\033[1;37m" 
+NC="\033[0m"         
+GREEN="\033[96;1m"
+REDBLD="\033[0m\033[91;1m"
+Green="\e[92;1m"
+RED="\033[1;31m"
+YELLOW="\033[33m"
+BLUE="\033[36m"
+GREENBG="\033[42;37m"
+green() { echo -e "\\033[32;1m${*}\\033[0m"; }
+red() { echo -e "\\033[31;1m${*}\\033[0m"; }
+clear
+nama=$(cat /etc/xray/username)
+
+# . Liner 
+function send_log(){
+CHATID=$(grep -E "^#bot# " "/etc/bot/.bot.db" | cut -d ' ' -f 3)
+KEY=$(grep -E "^#bot# " "/etc/bot/.bot.db" | cut -d ' ' -f 2)
+TIME="10"
+URL="https://api.telegram.org/bot$KEY/sendMessage"
+TEXT="
+<code>────────────────────
+<b>⚠️ NOTIFICATIONS UNLOCK XRAY ⚠️</b>
+────────────────────
+Username  : $user
+Expaired  : ${exp}
+Status    : UNLOCKED
+────────────────────</code>
+"
+curl -s --max-time $TIME -d "chat_id=$CHATID&disable_web_page_preview=1&text=$TEXT&parse_mode=html" $URL >/dev/null
+}
+
+function cek_lock() {
+cekcek=$(cat /etc/xray/.lock.db)
+if [[ $cekcek == "" ]]; then
+cat >/etc/xray/.lock.db <<EOF
+#vmess
+#vless
+#trojan
+EOF
+else
+echo -ne
+fi
+}
+cek_lock
+function baris_panjang() {
+  echo -e "${BlueCyan} ——————————————————————————————————— ${Xark} "
+}
+
+function Newbie_Banner() {
+clear
+baris_panjang
+echo -e "${ungu}           $nama      ${Xark} "
+baris_panjang
+}
+
+function Sc_Credit(){
+sleep 1
+baris_panjang
+echo -e "${ungu}  Terimakasih Telah Menggunakan ${Xark}"
+echo -e "${ungu}          Script Credit ${Xark}"
+echo -e "${ungu}          $nama ${Xark}"
+echo ""
+echo -e "{GREEN} Wait 3 Second For Back To Menu ${Xark}"
+sleep 3
+m-xray
+}
+
+function Daftar_Account() {
+grep -E "^#& " "/etc/xray/.lock.db" | cut -d ' ' -f 2-3 | sort | uniq | while read -r user date; do
+    printf "${WHITEBLD}    %-25s %-12s${NC}\n" "$user" "$date"
+done
+}
+	baris_panjang
+    echo -e "${ungu}           ACCOUNT VLESS LOCKED      ${Xark}"
+    baris_panjang
+    printf "${WHITEBLD}     %-25s %-12s${NC}\n" "USERNAME" "EXP DATE"
+	baris_panjang
+	Daftar_Account
+    echo ""
+    baris_panjang
+    echo ""
+    echo ""
+  echo -e "${WHITEBLD}"
+  read -rp " Username         : " -e user
+  	echo -e "${NC}"
+  	if [[ -z "$user" || "$user" == "exit" ]]; then
+    m-xray
+    exit
+	fi
+  if grep -i -w -q "$user" /etc/xray/config.json; then
+    clear
+    Newbie_Banner
+    baris_panjang
+    echo ""
+    echo -e "\033[91m Name Salah: Username sudah terdaftar!! ${NC}"
+    echo ""
+    baris_panjang
+    Sc_Credit
+  fi
+clear
+	uuid=$(grep -E "^#&" "/etc/xray/.lock.db" |  grep -wE "${user}" | cut -d " " -f 4 | sort | uniq | tail -n1)
+	exp=$(grep -E "^#&" "/etc/xray/.lock.db" |  grep -wE "${user}" | cut -d " " -f 3 | sort | uniq | tail -n1)
+if [ -z $uuid ]; then
+baris_panjang
+center "$(printf "${REDBLD}[ Unlock Account Failed! ]${NC}\n")"
+baris_panjang  
+echo -e ""
+echo -e "   UUID Tidak Valid"
+echo -e ""
+baris_panjang
+read -n 1 -s -r -p "Press any key to back"
+m-xray
+exit 1
+	else
+    sed -i '/#vless$/a\#& '"$user $exp"'\
+},{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
+    sed -i '/#vlessgrpc$/a\#& '"$user $exp"'\
+},{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
+sed -i "/^#& $user/d" /etc/xray/.lock.db
+    systemctl restart xray > /dev/null 2>&1
+    clear
+  Newbie_Banner
+  baris_panjang
+  printf "${WHITEBLD}  Username : $user ${NC}\n"
+  printf "${WHITEBLD}  Exp Date : $exp ${NC}\n"
+  printf "${WHITEBLD}  Status   : Unlocked ${NC}\n"
+  baris_panjang
+  send_log
+  Sc_Credit
+    fi  
