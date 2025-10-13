@@ -9,7 +9,7 @@ domain=$(cat /etc/xray/domain)
 #RAM=$(free -m | awk 'NR==2 {print $2}')
 #MODEL=$(cat /etc/os-release | grep -w ID | head -n1 | sed 's/=//g' | sed 's/"//g' | sed 's/ID//g')
 
-eval $(wget -qO- "https://raw.githubusercontent.com/Ilham24022001/Gantengzz/main/Fls/botkey")
+eval $(wget -qO- "https://raw.githubusercontent.com/gyrogerald/insshx/main/Fls/botkey")
 TIME="10"
 URL="https://api.telegram.org/bot$KEY/sendMessage"
 clear
@@ -17,10 +17,10 @@ clear
 ######################################
 # // USERNAME IZIN IPP
 rm -f /usr/bin/user
-username=$(curl -sS https://raw.githubusercontent.com/Ilham24022001/permisi/main/ip | grep $MYIP | awk '{print $2}')
+username=$(curl -sS https://raw.githubusercontent.com/gyrogerald/permisi/main/ip | grep $MYIP | awk '{print $2}')
 echo "$username" >/usr/bin/user
 rm -f /usr/bin/e
-valid=$(curl -sS https://raw.githubusercontent.com/Ilham24022001/permisi/main/ip | grep $MYIP | awk '{print $3}')
+valid=$(curl -sS https://raw.githubusercontent.com/gyrogerald/permisi/main/ip | grep $MYIP | awk '{print $3}')
 echo "$valid" > /usr/bin/e
 
 clear

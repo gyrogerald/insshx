@@ -58,7 +58,7 @@ clear
 
 
 
-REPO="https://raw.githubusercontent.com/Ilham24022001/Gantengzz/main/Cfg/"
+REPO="https://raw.githubusercontent.com/gyrogerald/Gantengzz/main/Cfg/"
 # fixhap fix Haproxy
 clear
 echo -e "${BlueCyan} ------------------------- ${Xark} "

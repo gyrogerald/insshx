@@ -102,10 +102,10 @@ fi
 ######################################
 # // USERNAME IZIN IPP
 rm -f /usr/bin/user
-username=$(curl -sS https://raw.githubusercontent.com/Ilham24022001/permisi/main/ip | grep $MYIP | awk '{print $2}')
+username=$(curl -sS https://raw.githubusercontent.com/gyrogerald/permisi/main/ip | grep $MYIP | awk '{print $2}')
 echo "$username" >/usr/bin/user
 rm -f /usr/bin/e
-valid=$(curl -sS https://raw.githubusercontent.com/Ilham24022001/permisi/main/ip | grep $MYIP | awk '{print $3}')
+valid=$(curl -sS https://raw.githubusercontent.com/gyrogerald/permisi/main/ip | grep $MYIP | awk '{print $3}')
 echo "$valid" > /usr/bin/e
 
 clear
@@ -282,7 +282,7 @@ case $hallo in
 5) clear ; m-noobz ;; # menu sadowsocks
 6) clear ; Rename ;; # menu noobzvps
 7) clear ; m-bot ;; # menu bot telegram
-8) clear ; wget -q https://raw.githubusercontent.com/Ilham24022001/Gantengzz/main/update.sh && bash update.sh ;; #Update script
+8) clear ; wget -q https://raw.githubusercontent.com/gyrogerald/insshx/main/update.sh && bash update.sh ;; #Update script
 9) clear ; m-bkp ;; # menu backup
 10) clear ; m-ftr ;; # menu managers
 11)clear ; reboot ;; # menu managers

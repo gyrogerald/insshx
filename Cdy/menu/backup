@@ -11,7 +11,7 @@ PURPLE='\033[0;35m'
 CYAN='\033[0;36m'
 LIGHT='\033[0;37m'
 # ==========================================
-eval $(wget -qO- "https://raw.githubusercontent.com/Ilham24022001/Gantengzz/main/Fls/botkey")
+eval $(wget -qO- "https://raw.githubusercontent.com/gyrogerald/insshx/main/Fls/botkey")
 export TIME="10"
 export URL="https://api.telegram.org/bot$KEY/sendMessage"
 clear

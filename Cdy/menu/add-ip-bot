@@ -26,12 +26,12 @@ NC='\e[0m'
 nama=$(cat /etc/xray/username)
 #################
 CHATIDD=$(grep -E "^#bot# " "/etc/bot/.bot.db" | cut -d ' ' -f 3)
-eval $(wget -qO- "https://raw.githubusercontent.com/Ilham24022001/Gantengzz/main/Fls/botkey")
+eval $(wget -qO- "https://raw.githubusercontent.com/gyrogerald/insshx/main/Fls/botkey")
 TIMES="10"
 URL="https://api.telegram.org/bot$KEY/sendMessage"
 MYIP=$(curl -sS ipv4.icanhazip.com)
 TOKEN="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"
-REPO="https://raw.githubusercontent.com/Ilham24022001/permisi/main/ip"
+REPO="https://raw.githubusercontent.com/gyrogerald/permisi/main/ip"
 EMAIL="diahfitriliani9@gmail.com"
 USER="Diah082"
 

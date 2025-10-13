@@ -143,7 +143,7 @@ case $NB in
 7) clear ; Factreset ;;
 8) clear ; exit 0 ;;
 9) clear ; cf ;;
-10) clear ; wget -q https://raw.githubusercontent.com/Ilham24022001/Gantengzz/main/Fls/nameserver && chmod +x nameserver && ./nameserver && reset ;;
+10) clear ; wget -q https://raw.githubusercontent.com/gyrogerald/insshx/main/Fls/nameserver && chmod +x nameserver && ./nameserver && reset ;;
 11) clear ; nano /etc/banner.txt ;;
 12) clear ; change-domain ;;
 13) clear ; fixhap ;;
